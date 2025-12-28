@@ -10,23 +10,28 @@ npm install finary-community
 
 ## Configuration & Authentification
 
-L'authentification sur Finary étant complexe (protection anti-bot), cette librairie fonctionne actuellement en utilisant une session navigateur existante.
+L'authentification sur Finary étant complexe (protection anti-bot), cette librairie fonctionne en utilisant une session navigateur existante qu'elle capture pour vous.
 
-Vous devez créer un fichier `credentials.json` à la racine de votre projet.
-Vous pouvez le générer automatiquement en lançant la commande interactive :
+Vous devez générer un fichier `credentials.json` qui permettra à votre code de se connecter.
+
+### Méthode Recommandée (Assistant Interactif)
+
+Si vous avez installé la librairie via NPM dans votre projet, executez simplement cette commande dans votre terminal (**à la racine où se trouve votre `node_modules`**) :
 
 ```bash
-npm run setup
+npx finary-community setup
 ```
 
-Ou le créer manuellement :
+Cela ouvrira une fenêtre de navigateur contrôlée. Connectez-vous simplement à Finary, et le script capturera automatiquement vos tokens et cookies pour générer le fichier `credentials.json`.
 
-### Structure du fichier `credentials.json`
+### Méthode Manuelle
+
+Vous pouvez créer manuellement un fichier `credentials.json` à la racine de votre projet avec la structure suivante :
 
 ```json
 {
-    "token": "JWT_TOKEN_ICI",
-    "clerkSession": "CLERK_SESSION_ID_ICI",
+    "token": "VOTRE_JWT_TOKEN",
+    "clerkSession": "VOTRE_CLERK_SESSION_ID",
     "headers": {
         "user-agent": "Mozilla/5.0 ...",
         "cookie": "..."
@@ -34,7 +39,7 @@ Ou le créer manuellement :
 }
 ```
 
-> **Note :** Le `clerkSession` et les `headers` (cookie) sont essentiels pour permettre le rafraîchissement automatique du token.
+> **Important :** Le `clerkSession` (cookie `__session`) et les `headers` (notamment le `User-Agent` et `Cookie`) sont **obligatoires** pour permettre à la librairie de rafraîchir le token automatiquement lorsqu'il expire. Sans cela, le script cessera de fonctionner après 20 minutes.
 
 ## API Reference
 

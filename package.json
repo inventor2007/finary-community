@@ -1,12 +1,15 @@
 {
     "name": "finary-community",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Finary Community Library",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
         "dist"
     ],
+    "bin": {
+        "finary-community": "./dist/scripts/setup-credentials.js"
+    },
     "scripts": {
         "build": "tsc",
         "setup": "node dist/scripts/setup-credentials.js"

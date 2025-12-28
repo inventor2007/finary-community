@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import path from 'node:path';
 import readline from 'node:readline';
 import { createSession } from '../auth/login-helper';
