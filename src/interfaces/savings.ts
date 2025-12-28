@@ -1,0 +1,85 @@
+import { PortfolioTotal, BankAccountType, Institution, FiatAsset, OwnershipRepartition } from './checking';
+import { DisplayCurrency } from './user';
+
+export interface SavingsAccount {
+    slug: string;
+    name: string;
+    connection_id: string | null;
+    state: string | null;
+    state_message: string | null;
+    correlation_id: string;
+    iban: string | null;
+    bic: string | null;
+    opened_at: string | null;
+    id: string;
+    manual_type: string | null;
+    logo_url: string;
+    created_at: string;
+    annual_yield: number | null;
+    balance: number;
+    display_balance: number;
+    organization_balance: number;
+    display_organization_balance: number;
+    upnl: number | null;
+    display_upnl: number | null;
+    current_upnl: number | null;
+    display_current_upnl: number | null;
+    unrealized_pnl: number | null;
+    display_unrealized_pnl: number | null;
+    evolution: number | null;
+    display_evolution: number | null;
+    period_evolution: number | null;
+    display_period_evolution: number | null;
+    upnl_difference: number | null;
+    display_upnl_difference: number | null;
+    value_difference: number | null;
+    display_value_difference: number | null;
+    share: number;
+    last_sync_at: string | null;
+    last_successful_sync_at: string | null;
+    last_provider_update_at: string | null;
+    last_sync: string | null;
+    is_manual: boolean;
+    currency: DisplayCurrency;
+    display_currency: DisplayCurrency;
+    contract: any | null; // Can be cleaner if we know the structure, but null in example
+    transactions_count: number;
+    bank_account_type: BankAccountType;
+    current_upnl_percent: number | null;
+    display_current_upnl_percent: number | null;
+    unrealized_pnl_percent: number | null;
+    evolution_percent: number | null;
+    period_evolution_percent: number | null;
+    upnl_evolution: number | null;
+    display_upnl_evolution: number | null;
+    upnl_percent: number | null;
+    display_upnl_percent: number | null;
+    value_evolution: number | null;
+    display_value_evolution: number | null;
+    ownership_repartition: OwnershipRepartition[];
+    in_investment_plan: boolean;
+    has_transactions: boolean;
+    category: string | null;
+    bank: Institution;
+    institution: Institution;
+    institution_connection: any | null;
+    provider_connection: any | null;
+    source: string | null;
+    fiats: FiatAsset[];
+    securities: any[];
+    cryptos: any[];
+    fonds_euro: any[];
+    startups: any[];
+    precious_metals: any[];
+    scpis: any[];
+    generic_assets: any[];
+    real_estates: any[];
+    loans: any[];
+    crowdlendings: any[];
+}
+
+export interface SavingsPortfolio {
+    total: PortfolioTotal;
+    accounts: SavingsAccount[];
+    ownership_repartition: OwnershipRepartition[];
+}

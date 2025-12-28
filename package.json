@@ -1,0 +1,34 @@
+{
+    "name": "finary-community",
+    "version": "0.1.0",
+    "description": "Finary Community Library",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "setup": "node dist/scripts/setup-credentials.js"
+    },
+    "keywords": [
+        "finary",
+        "finance",
+        "gestion",
+        "community"
+    ],
+    "author": "inventor2007",
+    "license": "MIT",
+    "dependencies": {
+        "puppeteer": "^24.34.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.10.6",
+        "@types/puppeteer": "^5.4.7",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.3.3"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
